@@ -30,7 +30,7 @@ function getNum(messages) {
     return nums;
 }
 
-const arrOfMessages = [`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
+const arrOfMessages = [`Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0
 Введіть a`, `a = ${nums[0]}
 Введіть b`,`a = ${nums[0]}, b = ${nums[1]}
 Введіть c`]
