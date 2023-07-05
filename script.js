@@ -1,22 +1,30 @@
-function getNum(messages) {
+//массив, в котором будут находиться числа
+let nums = [];
 
-    
-    let nums = [];
+//получить числа от пользователя
+function getNum(messages) {
 
     for (let i = 0; i < messages.length; i++) {
         let num;
 
         do {
-            let num = prompt(messages[i]);
+            
+            num = prompt(messages[i]);
+            console.log(nums);
 
+            // выход из цикла при num === null
             if (num === null) {
                 alert('Жаль. Сподіваюсь ще побачитись');
-                break;
+                return num;
+                // break;
             }
 
-            nums.push(+num);
+            num = +num
+            nums.push(num);
+            console.log(nums)
         } while (typeof num !== 'number');
 
+        if (num === null) break;
     }
 
     return nums;
