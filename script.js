@@ -1,39 +1,36 @@
-//массив, в котором будут находиться числа
-let nums = [];
-
 //получить числа от пользователя
-function getNum(messages) {
+function getNums() {
+    //массив, в котором будут находиться числа
+    let nums = [];
 
-    for (let i = 0; i < messages.length; i++) {
-        let num;
+    const a = prompt(`Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0
+Введіть a`);
 
-        do {
-            
-            num = prompt(messages[i]);
-            console.log(nums);
-
-            // выход из цикла при num === null
-            if (num === null) {
-                alert('Жаль. Сподіваюсь ще побачитись');
-                return num;
-                // break;
-            }
-
-            num = +num
-            nums.push(num);
-            console.log(nums)
-        } while (typeof num !== 'number');
-
-        if (num === null) break;
+    if (a == null) {
+        alert('Жаль. Сподіваюсь ще побачитись');
+        return;
     }
 
-    return nums;
-}
+    const b = prompt(`a = ${a}
+Введіть b`)
 
-const arrOfMessages = [`Будемо знаходити рішення квадратного рівняння виду: ax^2 + bx + c = 0
-Введіть a`, `a = ${nums[0]}
-Введіть b`,`a = ${nums[0]}, b = ${nums[1]}
-Введіть c`]
+    if (b == null) {
+        alert('Жаль. Сподіваюсь ще побачитись');
+        return;
+    }
+
+    const c = prompt(`a = ${a}, b = ${b}
+Введіть c`)
+
+    if (c == null) {
+        alert('Жаль. Сподіваюсь ще побачитись');
+        return;
+    }
+
+    nums.push(+a, +b, +c);
+    return nums;
+      
+}
 
 function getRoots(a, b, c) {
     
@@ -57,4 +54,4 @@ function getRoots(a, b, c) {
     return `x1 = ${x1}, x2 = ${x2}`;
 }
 
-alert(getRoots(...getNum(arrOfMessages)));
+alert(getRoots(...getNums()));s
