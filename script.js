@@ -1,19 +1,23 @@
-function getNum(message) {
+//получить число от пользователя
+function getNum(message, prevNum) {
     let num;
 
-    do {
-        num = prompt(message);
+    if (prevNum != null) {
+        do {
+                num = prompt(message);
 
-        if (num === null) {
-            alert('Жаль. Сподіваюсь ще побачитись');
-            break;
-        }
-        num = +num;
-    } while (typeof num !== 'number');
+                if (num === null) {
+                    alert('Жаль. Сподіваюсь ще побачитись');
+                    break;
+                }
+                num = +num;
+            } while (isNaN(num));
 
-    return num;
+            return num;
+    }
 }
 
+//найти корни
 function getRoots(a, b, c) {
     
     if (a === 0) {
@@ -37,10 +41,10 @@ function getRoots(a, b, c) {
 }
 
 const a = getNum(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
-Введіть a`);
+Введіть a`, '');
 const b = getNum(`a = ${a}
-Введіть b`);
+Введіть b`, a);
 const c = getNum(`a = ${a}, b = ${b}
-Введіть c`);
+Введіть c`, b);
 
-alert(getRoots(a, b, c));
+if (a != null && b != null && c != null) alert(getRoots(a, b, c));
