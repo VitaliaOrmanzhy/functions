@@ -18,26 +18,42 @@ function getNum(message, prevNum) {
 }
 
 //найти корни
-function getRoots(a, b, c) {
+function getRoots(a, b, c, ifInvalid) {
     
     if (a === 0) {
-        return 'a = 0. Рівняння не має рішень';
+        ifInvalid();
+        return null;
     }
 
     const D = b ** 2 - 4 * a * c;
 
     if (D < 0) {
-        return 'D < 0. Рівняння не має рішень';
+        alert('D < 0. Рівняння не має рішень');
+        return {
+            d: D,
+            x1: null,
+            x2: null
+        }
     }
 
     const x1 = (-b - Math.sqrt(D)) / 2 * a;
     const x2 = (-b + Math.sqrt(D)) / 2 * a;
     
     if (D === 0) {
-        return `D = 0. Єдиний корень рівняння: ${x1}`
+        alert(`D = 0. Єдиний корень рівняння: ${x1}`);
+        return;
     }
 
-    return `x1 = ${x1}, x2 = ${x2}`;
+    alert(`x1 = ${x1}, x2 = ${x2}`)
+    return {
+        d: D,
+        x1: x1,
+        x2: x2
+    };
+}
+
+function ifInvalid() {
+    return alert('a = 0, функція не має рішень');
 }
 
 const a = getNum(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
@@ -47,4 +63,4 @@ const b = getNum(`a = ${a}
 const c = getNum(`a = ${a}, b = ${b}
 Введіть c`, b);
 
-if (a != null && b != null && c != null) alert(getRoots(a, b, c));
+if (a != null && b != null && c != null) getRoots(a, b, c);
