@@ -11,7 +11,7 @@ function getNum(message, prevNum) {
                     break;
                 }
                 num = +num;
-            } while (isNaN(num));
+            } while (isNaN(num) || num === 0);
 
             return num;
     }
